@@ -1,4 +1,5 @@
 import csv
+import datetime
 
 def balance():
     #This opens the transactions.csv file, load everything into a list, and compare the debits and credits.
@@ -48,6 +49,7 @@ def budget_check():
     catetory = input("Which catetory do you want to check?\n-> ")
 
     #need to add some stuff here to do what it's supposed to do... :(
+    #datetime.datetime.today().strftime('%m/%d/%Y')
 
 while True:
     load_budget()
