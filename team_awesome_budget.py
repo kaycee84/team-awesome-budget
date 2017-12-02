@@ -1,6 +1,5 @@
 import csv
 
-
 def balance():
     #This opens the transactions.csv file, load everything into a list, and compare the debits and credits.
     #In the long run, this will be replaced by a database or maybe just move the file to the server...
@@ -20,12 +19,11 @@ def balance():
             elif item[0] == "Credit":
                 balance = balance + float(item[2])
 
-
     print(f"You have spent ${debits:.2f} of your ${balance:.2f} deposits. You have ${balance - debits:.2f} left in your account")
 
 def update_transactions():
-    #This function updates transactions.csv to keep a running tally of our debits and credits. 
-    #Since this is a command line application at the moment, it's just a single string. 
+    #This function updates transactions.csv to keep a running tally of our debits and credits.
+    #Since this is a command line application at the moment, it's just a single string.
     #Long term, I will use fields in a web interface and just commit... I hope.
     print('Enter transaction you\'d like to add\nExample "Credit,11/11/2017,1200.00,Kevin,Metro,Wedding Deposit"')
     update = input('-> ').split(',')
@@ -45,22 +43,24 @@ def load_budget():
 
 def budget_check():
     #This will take user input to get one of the categories and compare the transactions against the budget for the last
-    #30, 90, 180, and 365 days. 
+    #30, 90, 180, and 365 days.
     #Once I get it working, I'll get feedback from my wife and see what features she wants added.
-    pass
+    catetory = input("Which catetory do you want to check?\n-> ")
+
+    #need to add some stuff here to do what it's supposed to do... :(
 
 while True:
     load_budget()
     #bracketted words are the input options
-    selection = input("Select One:\n[Check] Balance\n[Update] Transactions\nCheck [Budget]\n[Exit]\n-> ")
+    selection = input("Select An Option:\n-> [Check] Balance\n-> [Update] Transactions\n-> Check [Budget]\n-> [Exit]\n-> ")
 
-    if selection.lower(0) == 'check':
+    if selection.lower() == 'check':
         balance()
-    elif selection.lower(0) == 'update':
+    elif selection.lower() == 'update':
         update_transactions()
-    elif selection.lower(0) == 'budget':
+    elif selection.lower() == 'budget':
         pass
-    elif selection.lower(0) == 'exit':
+    elif selection.lower() == 'exit':
         print("Goodbye.")
         break
     else:
